@@ -1,5 +1,13 @@
+.reviews {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+}
+
 .reviews-set {
     @extend %list;
+
+    display: flex;
 }
 
 .reviews-item {
@@ -7,6 +15,8 @@
     padding: 40px;
     color: #fff;
     font-size: 48px;
+
+    width: calc(100% / 3);
 }
 
 $colors: "#795548", "#607D8B", "#7B1FA2";

@@ -1,5 +1,16 @@
 .features-set {
     @extend %list;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -5px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin: -10px;
+            
+    }
 }
 
 .features-item {
@@ -8,7 +19,34 @@
     padding-bottom: 20px;
     color: #fff;
     font-size: 32px;
+
+    @media screen and (min-width: 768px) {
+            // flex-basis: 50%;
+            margin: 5px;
+            // 100% (ширины вью-порта) - 4-е марджина (каждого item-а) * ширину марджина (равную 5px)
+            width: calc((100% - 4 * 5px) / 2);
+        }
+    
+    @media screen and (min-width: 1200px) {
+        margin: 10px;
+        width: calc((100% - 6 * 10px) / 3);
+    }
+
+    // Второй вариант - Устанавливки правила применения марджина на мобильной версии верстки с порогом ее исполнения до "767px"
+    &:not(:last-child) {
+        @media screen and (max-width: 767px) {
+            margin-bottom: 20px;
+        }
+    }
 }
+
+// Первый вариант - Устанавливки правила применения марджина на мобильной версии верстки с порогом ее исполнения до "767px"
+// @media screen and (max-width: 767px) {
+    // .features-item:not(:last-child) {
+    // margin-bottom: 20px;
+    // }
+// }
+
 
 $colors: "#F44336", "#3F51B5", "#4CAF50", "#00BCD4", "#E91E63", "#009688";
 
